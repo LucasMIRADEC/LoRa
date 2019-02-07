@@ -37,18 +37,18 @@
 // first. When copying an EUI from ttnctl output, this means to reverse
 // the bytes. For TTN issued EUIs the last bytes should be 0xD5, 0xB3,
 // 0x70.
-static const u1_t PROGMEM APPEUI[8]={ 0x70, 0xB3, 0xD5, 0x7E, 0xD0, 0x01, 0x73, 0xD9 };
+static const u1_t PROGMEM APPEUI[8]={ 0x1C, 0x76, 0x01, 0xD0, 0x7E, 0xD5, 0xB3, 0x70 };
 void os_getArtEui (u1_t* buf) { memcpy_P(buf, APPEUI, 8);}
 
 // This should also be in little endian format, see above.
-static const u1_t PROGMEM DEVEUI[8]={ 0x00, 0x4F, 0x67, 0xA8, 0x36, 0xEA, 0x40, 0xD8 };
+static const u1_t PROGMEM DEVEUI[8]={ 0x3C, 0xFD, 0xA0, 0xA8, 0xBB, 0x95, 0x86, 0x00 };
 void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8);}
 
 // This key should be in big endian format (or, since it is not really a
 // number but a block of memory, endianness does not really apply). In
 // practice, a key taken from ttnctl can be copied as-is.
 // The key shown here is the semtech default key.
-static const u1_t PROGMEM APPKEY[16] = { 0xAB, 0x65, 0x43, 0xC8, 0x23, 0x84, 0xF9, 0xBD, 0x83, 0x35, 0x38, 0x03, 0x88, 0x32, 0x8D, 0x9D };
+static const u1_t PROGMEM APPKEY[16] = { 0xF1, 0x00, 0x7A, 0xD3, 0x01, 0x97, 0x15, 0x3F, 0xCB, 0x3D, 0x0D, 0xDC, 0x6D, 0x29, 0x7A, 0x0A };
 void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16);}
 
 static uint8_t mydata[] = "Hello, world!";
